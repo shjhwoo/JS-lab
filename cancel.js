@@ -25,7 +25,7 @@ async function somethingIWantToCancel({ signal } = {}) {
 const ac = new AbortController();
 (async function cencelTest() {
   try {
-    ac.abort(); // give it a 1s timeout
+    ac.abort(); // give it a 1s timeout setTimeout(() => {}, 1000): 1초안에 응답안오면 취소할꺼야!!
     console.log("취소요청 보냄");
     await somethingIWantToCancel({ signal: ac.signal });
   } catch (e) {
